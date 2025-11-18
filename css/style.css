@@ -1,0 +1,121 @@
+/* ベーススタイル */
+body {
+    font-family: sans-serif;
+    text-align: center;
+    padding: 20px;
+    background-color: #f4f4f9;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* ギャラリー全体の設定 (Gridレイアウト) */
+.gallery-container {
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 各画像アイテムのデザイン */
+.gallery-item {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15); 
+}
+
+/* サムネイル画像の設定 */
+.gallery-item img.thumb {
+    width: 100%;
+    height: 150px; 
+    object-fit: cover; 
+    border-radius: 4px;
+    display: block;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.gallery-item img.thumb:hover {
+    opacity: 0.8; 
+}
+
+
+/* === モーダル（プレビュー画面）のCSS === */
+
+/* モーダル全体の背景 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    align-items: center;
+    justify-content: center;
+}
+
+/* モーダルのコンテンツボックス */
+.modal-content {
+    background: transparent;
+    display: block;
+    max-width: 90%;
+    max-height: 95vh;
+    text-align: center;
+    position: relative;
+}
+
+/* プレビュー画像 */
+#preview-image {
+    width: auto;
+    max-width: 100%;
+    max-height: 80vh;
+    display: block;
+    margin: 0 auto;
+}
+
+/* 閉じるボタン */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    color: #fff;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.close:hover {
+    color: #bbb;
+}
+
+/* ダウンロードボタン */
+.download-button {
+    display: inline-block;
+    padding: 10px 25px;
+    margin-top: 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.download-button:hover {
+    background-color: #0056b3;
+}
