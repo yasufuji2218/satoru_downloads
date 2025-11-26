@@ -28,6 +28,8 @@ h1 {
     padding: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s;
+    cursor: pointer; /* ポインターを表示 */
+    user-select: none; /* テキスト選択を無効化 */
 }
 
 .gallery-item:hover {
@@ -42,8 +44,8 @@ h1 {
     object-fit: cover; 
     border-radius: 4px;
     display: block;
-    cursor: pointer;
     transition: opacity 0.3s;
+    position: static; /* 親要素のrelativeと競合しないようstaticに */
 }
 
 .gallery-item img.thumb:hover {
@@ -114,4 +116,37 @@ h1 {
 
 .download-button:hover {
     background-color: #0056b3;
+}
+
+/* --- コーナー分けの視覚効果 --- */
+
+/* 動画セクションのアイテムの背景色を変更 */
+#video-section + .gallery-container .gallery-item {
+    background-color: #f0f8ff; /* 薄い青 */
+    position: relative; /* 再生マークの位置基準 */
+}
+
+/* 再生マーク風のオーバーレイ */
+#video-section + .gallery-container .gallery-item::after {
+    content: '▶'; /* 再生マーク */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5); /* 半透明の黒背景 */
+    border-radius: 50%;
+    padding: 5px 8px 5px 10px;
+    pointer-events: none; /* クリックを下のサムネイルに透過させる */
+}
+
+/* --- 黒い閉じるボタン用のスタイル --- */
+.close.black-btn {
+    color: #333; /* ダークグレー（ほぼ黒） */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8); /* 白いフチをつけて更に見やすく */
+}
+
+.close.black-btn:hover {
+    color: #000; /* ホバー時は真っ黒 */
 }
